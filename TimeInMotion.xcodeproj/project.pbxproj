@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		B5BE669E28830B4D008AA36C /* TimeInMotionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE669D28830B4D008AA36C /* TimeInMotionApp.swift */; };
-		B5BE66A028830B4D008AA36C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE669F28830B4D008AA36C /* ContentView.swift */; };
+		B5BE66A028830B4D008AA36C /* ObservationSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE669F28830B4D008AA36C /* ObservationSetupView.swift */; };
 		B5BE66A228830B4E008AA36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5BE66A128830B4E008AA36C /* Assets.xcassets */; };
 		B5BE66A528830B4E008AA36C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5BE66A428830B4E008AA36C /* Preview Assets.xcassets */; };
+		B5BE66AC28831EF2008AA36C /* ObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE66AB28831EF2008AA36C /* ObservationView.swift */; };
+		B5BE66AE2883207F008AA36C /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE66AD2883207F008AA36C /* Observation.swift */; };
+		B5BE66B028846BF1008AA36C /* ObservationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE66AF28846BF1008AA36C /* ObservationListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B5BE669A28830B4D008AA36C /* TimeInMotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeInMotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5BE669D28830B4D008AA36C /* TimeInMotionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInMotionApp.swift; sourceTree = "<group>"; };
-		B5BE669F28830B4D008AA36C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B5BE669F28830B4D008AA36C /* ObservationSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationSetupView.swift; sourceTree = "<group>"; };
 		B5BE66A128830B4E008AA36C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5BE66A428830B4E008AA36C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B5BE66AB28831EF2008AA36C /* ObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationView.swift; sourceTree = "<group>"; };
+		B5BE66AD2883207F008AA36C /* Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
+		B5BE66AF28846BF1008AA36C /* ObservationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				B5BE669D28830B4D008AA36C /* TimeInMotionApp.swift */,
-				B5BE669F28830B4D008AA36C /* ContentView.swift */,
+				B5BE66AD2883207F008AA36C /* Observation.swift */,
+				B5BE66AF28846BF1008AA36C /* ObservationListView.swift */,
+				B5BE669F28830B4D008AA36C /* ObservationSetupView.swift */,
+				B5BE66AB28831EF2008AA36C /* ObservationView.swift */,
 				B5BE66A128830B4E008AA36C /* Assets.xcassets */,
 				B5BE66A328830B4E008AA36C /* Preview Content */,
 			);
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5BE66A028830B4D008AA36C /* ContentView.swift in Sources */,
+				B5BE66B028846BF1008AA36C /* ObservationListView.swift in Sources */,
+				B5BE66AE2883207F008AA36C /* Observation.swift in Sources */,
+				B5BE66A028830B4D008AA36C /* ObservationSetupView.swift in Sources */,
+				B5BE66AC28831EF2008AA36C /* ObservationView.swift in Sources */,
 				B5BE669E28830B4D008AA36C /* TimeInMotionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +287,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +317,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

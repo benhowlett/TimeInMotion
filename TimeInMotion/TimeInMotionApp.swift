@@ -11,7 +11,7 @@ import SwiftUI
 struct TimeInMotionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ObservationListView()
         }
     }
 }
