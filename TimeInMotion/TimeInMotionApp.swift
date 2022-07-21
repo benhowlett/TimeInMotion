@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct TimeInMotionApp: App {
+    let projectList = ProjectList()
+    
     var body: some Scene {
         WindowGroup {
-            ObservationListView()
+            ProjectListView(projects: projectList)
         }
     }
 }

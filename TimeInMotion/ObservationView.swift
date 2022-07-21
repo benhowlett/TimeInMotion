@@ -13,6 +13,7 @@ struct ObservationView: View {
     
     var body: some View {
         VStack {
+            Text(observation.name)
             Text("\(date)")
         }
         .navigationTitle("Observation")
