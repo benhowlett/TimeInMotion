@@ -15,18 +15,18 @@ class Observation: ObservableObject, Hashable , Identifiable{
     var crew: String
     var shiftLength: Int
     var discipline: Discipline
-    var time: Date
     var notes: String
+    let dateFormatter = DateFormatter()
     
-    init(name: String, date: Date = Date.now, area: String, crew: String, shiftLength: Int, discipline: Discipline, time: Date, notes: String) {
+    init(name: String, date: Date = Date.now, area: String, crew: String, shiftLength: Int, discipline: Discipline, notes: String) {
         self.name = name
         self.date = date
         self.area = area
         self.crew = crew
         self.shiftLength = shiftLength
         self.discipline = discipline
-        self.time = time
         self.notes = notes
+        dateFormatter.dateFormat = "YYYY-MM-DD"
     }
     
     static func == (lhs: Observation, rhs: Observation) -> Bool {
@@ -36,19 +36,19 @@ class Observation: ObservableObject, Hashable , Identifiable{
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
     }
-}
-
-enum Discipline {
-    case demolition
-    case siteWork
-    case structuralConcrete
-    case structuralSteel
-    case mechanical
-    case piping
-    case electrical
-    case instrumentation
-    case painting
-    case subcontractor
-    case fireproofing
-    case insulation
+    
+    enum Discipline: String, CaseIterable {
+        case demolition = "Demolition"
+        case siteWork = "Site Work"
+        case structuralConcrete = "Structural Concrete"
+        case structuralSteel = "Structural Steel"
+        case mechanical = "Mechanical"
+        case piping = "Piping"
+        case electrical = "Electrical"
+        case instrumentation = "Instrumentation"
+        case painting = "Painting"
+        case subcontractor = "Subcontractor"
+        case fireproofing = "Fireproofing"
+        case insulation = "Insulation"
+    }
 }

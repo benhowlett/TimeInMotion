@@ -13,18 +13,18 @@ struct ObservationListView: View {
     var body: some View {
         ZStack {
             List(project.observations) { observation in
-                NavigationLink(observation.name, value: observation)
+                NavigationLink(observation.dateFormatter.string(from: observation.date), value: observation)
             }
             .navigationTitle(project.name)
             .navigationDestination(for: Observation.self) { observation in
-                ObservationSetupView(observation: observation)
+                ObservationView(observation: observation)
             }
             VStack {
                 Spacer()
                 HStack {
                     Spacer()
                     Button(action: {
-                        viewModel.newProjectSheetIsShowing = true
+                        project.newObservationSheetIsShowing = true
                     }, label: {
                         Image(systemName: "plus")
                             .font(.largeTitle)
@@ -38,6 +38,10 @@ struct ObservationListView: View {
                     .shadow(radius: 3, x: 3, y: 3)
                 }
             }
+        }
+        .sheet(isPresented: $project.newObservationSheetIsShowing) {
+            ObservationFormView(project: project)
+                .presentationDetents([.medium, .large], selection: $project.newObservationSheetDetent)
         }
     }
 }

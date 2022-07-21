@@ -11,8 +11,6 @@ class ProjectList: ObservableObject {
     @Published private(set) var projects: [Project] = []
     @Published var newProjectSheetIsShowing = false
     @Published var newProjectSheetDetent = PresentationDetent.medium
-    @Published var newObservationSheetIsShowing = false
-    @Published var newObservationSheetDetent = PresentationDetent.large
     
     func addProject(_ project: Project) {
         projects.append(project)

@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct ObservationView: View {
-    var date: Date
     var observation: Observation
     
     var body: some View {
         VStack {
             Text(observation.name)
-            Text("\(date)")
         }
         .navigationTitle("Observation")
     }
