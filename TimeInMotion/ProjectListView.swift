@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ProjectListView: View {
-    @ObservedObject var projects: ProjectList
+    @StateObject var viewModel = ProjectList()
     @State private var path = NavigationPath()
     
     var body: some View {
         NavigationStack(path: $path) {
             ZStack {
-                List(projects.allProjects) { project in
+                List(viewModel.projects) { project in
                     NavigationLink(project.name, value: project)
                 }
                 .navigationTitle("Projects")
@@ -27,7 +27,7 @@ struct ProjectListView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        
+                        viewModel.newProjectSheetIsShowing = true
                     }, label: {
                         Image(systemName: "plus")
                             .font(.largeTitle)
@@ -42,12 +42,15 @@ struct ProjectListView: View {
                 }
             }
         }
+        .sheet(isPresented: $viewModel.newProjectSheetIsShowing) {
+            ProjectFormView(viewModel: viewModel)
+                .presentationDetents([.medium, .large], selection: $viewModel.newProjectSheetDetent)
+        }
     }
 }
 
 struct ProjectListView_Previews: PreviewProvider {
     static var previews: some View {
-        let projectList = ProjectList()
-        ProjectListView(projects: projectList)
+        ProjectListView()
     }
 }

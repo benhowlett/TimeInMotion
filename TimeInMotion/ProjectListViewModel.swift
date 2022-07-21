@@ -5,14 +5,14 @@
 //  Created by Ben Howlett on 2022-07-19.
 //
 
-import Foundation
+import SwiftUI
 
 class ProjectList: ObservableObject {
-    @Published private var projects: [Project] = []
-    
-    var allProjects: [Project] {
-        projects
-    }
+    @Published private(set) var projects: [Project] = []
+    @Published var newProjectSheetIsShowing = false
+    @Published var newProjectSheetDetent = PresentationDetent.medium
+    @Published var newObservationSheetIsShowing = false
+    @Published var newObservationSheetDetent = PresentationDetent.large
     
     func addProject(_ project: Project) {
         projects.append(project)

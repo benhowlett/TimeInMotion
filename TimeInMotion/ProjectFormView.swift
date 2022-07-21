@@ -8,28 +8,50 @@
 import SwiftUI
 
 struct ProjectFormView: View {
-    @State var project: Project
+    @StateObject var viewModel: ProjectList
+    @State var newProjectName = ""
+    @State var newProjectClientName = ""
+    @State var newProjectType = ""
     
     var body: some View {
         VStack {
+            Text("Enter the new project information")
+                .padding()
             Form() {
-                Section(header: Text("Project Information")) {
-                    TextField("Project Name", text: $project.name)
-                    TextField("Client Name", text: $project.client)
-                    TextField("Project Type", text: $project.type)
+                Section(header: Text("Project Name")) {
+                    TextField("Project Name", text: $newProjectName)
+                }
+                Section(header: Text("Client Name")) {
+                    TextField("Client Name", text: $newProjectClientName)
+                }
+                Section(header: Text("Project Type")) {
+                    TextField("Project Type", text: $newProjectType)
                 }
             }
             HStack {
                 Button(action: {
-                    
+                    viewModel.newProjectSheetIsShowing = false
                 }) {
                     Text("Cancel")
+                        .frame(width: 120)
+                        .padding()
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(40)
+                        .fontWeight(.bold)
                 }
                 Spacer()
                 Button(action: {
-                    
+                    viewModel.addProject(Project(name: newProjectName, client: newProjectClientName, projectType: newProjectType))
+                    viewModel.newProjectSheetIsShowing = false
                 }) {
                     Text("Create Project")
+                        .frame(width: 120)
+                        .padding()
+                        .background(Color.accentColor)
+                        .foregroundColor(.white)
+                        .cornerRadius(40)
+                        .fontWeight(.bold)
                 }
             }
             .padding()
@@ -39,7 +61,7 @@ struct ProjectFormView: View {
 
 struct ProjectFormView_Previews: PreviewProvider {
     static var previews: some View {
-        let project = Project(name: "", client: "", projectType: "")
-        ProjectFormView(project: project)
+        let viewModel = ProjectList()
+        ProjectFormView(viewModel: viewModel)
     }
 }
